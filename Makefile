@@ -8,15 +8,15 @@ COUNTRIES_PBF := $(addsuffix -latest.osm.pbf,$(addprefix world/,$(WANTED_COUNTRI
 
 # Download the raw source file of a country
 world/%.osm.pbf:
-	wget -N -nv -P --show-progress world/ https://download.geofabrik.de/europe/$*.osm.pbf
+	sudo wget -N -nv -P world/ --show-progress  https://download.geofabrik.de/europe/$*.osm.pbf
 
 # Filter a raw country (in world/*) to rail-only data (in filtered/*)
 filtered/%.osm.pbf: world/%.osm.pbf filter.params
-	osmium tags-filter --expressions=filter.params $< -o $@ --overwrite
+	sudo osmium tags-filter --expressions=filter.params $< -o $@ --overwrite
 
 # Combine all rail-only data (in filtered/*) into one file
 output/filtered.osm.pbf: $(subst world,filtered,$(COUNTRIES_PBF))
-	osmium merge $^ -o $@ --overwrite
+	sudo osmium merge $^ -o $@ --overwrite
 
 # Compute the real OSRM data on the combined file
 output/filtered.osrm: output/filtered.osm.pbf freight.lua
