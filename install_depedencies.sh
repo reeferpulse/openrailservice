@@ -11,6 +11,7 @@ apt-get install make
 # Install git
 apt-get install -y git
 # Install osmium
+apt-get update -y
 apt-get install -y osmium-tool
 # Install docker-compose
 apt-get install -y docker-compose
