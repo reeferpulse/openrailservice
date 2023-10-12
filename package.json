@@ -1,0 +1,11 @@
+{
+  "name": "openrailservice",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/reeferpulse/openrailservice",
+  "author": "Rémy Ntshaykolo <remy.nts@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build-and-push-dev": "echo dev|sh build-and-push.sh"
+  }
+}
