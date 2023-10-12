@@ -6,6 +6,6 @@
   "author": "Rémy Ntshaykolo <remy.nts@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build-and-push-dev": "echo dev|sh build-and-push.sh"
+    "build-push": "echo dev| AWS_PROFILE=dev_reeferpulse sh build-push.sh"
   }
 }
